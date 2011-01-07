@@ -22,7 +22,7 @@ describe KeyCodeGenerator do
 
     @reports << Benchmark.measure do
       @keycodes = KeyCodeGenerator.generate
-      (@all & @excludes).length.should == 5000
+      (@keycodes & @excludes).length.should == 5000
     end
   end
   it "should exclude the list" do
