@@ -29,7 +29,7 @@ describe KeyCodeGenerator do
 
     @reports << Benchmark.measure do
       @keycodes = KeyCodeGenerator.generate
-      (@all & @excludes).should be_empty
+      (@keycodes & @excludes).should be_empty
     end
   end
 end 
