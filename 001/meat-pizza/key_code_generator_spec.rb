@@ -28,7 +28,7 @@ describe KeyCodeGenerator do
   it "should exclude the list" do
     @excludes = ['o','z','l','0','2','1']
     @reports << Benchmark.measure do
-      @keycodes = KeyCodeGenerator.generate
+      @keycodes = KeyCodeGenerator.generate 
       @keycodes.map{ |keycode| (keycode.chars.to_a & @excludes).should be_empty  }
     end
   end
