@@ -32,6 +32,18 @@ describe KeyCodeGenerator do
       (@keycodes & @excludes).should be_empty
     end
   end
+  it "should only have keys 6 chars line" do
+
+    @reports << Benchmark.measure do
+      @keycodes = KeyCodeGenerator.generate
+      @keycodes.map{ |keycode| keycode.length == 6 }
+    end
+  end
+  it "returns all unique keys " do 
+    @reports << Benchmark.measure do
+      KeyCodeGenerator.generate.uniq!.should be_nil
+    end
+  end
 end 
 
 
