@@ -29,7 +29,7 @@ describe KeyCodeGenerator do
 
     @reports << Benchmark.measure do
       @keycodes = KeyCodeGenerator.generate
-      @keycodes.map{ |keycode| (keycode..chars.to_a & @excludes).should be_empty  }
+      @keycodes.map{ |keycode| (keycode.chars.to_a & @excludes).should be_empty  }
     end
   end
   it "should only have keys 6 chars line" do
