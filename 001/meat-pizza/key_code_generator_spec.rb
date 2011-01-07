@@ -18,14 +18,20 @@ describe KeyCodeGenerator do
 
   @excludes = ['o','z','l',0,2,1]
   
-  it "should not have any excludes" do
+  it "should be 5000 entries" do
 
     @reports << Benchmark.measure do
       @keycodes = KeyCodeGenerator.generate
       (@all & @excludes).length.should == 5000
     end
   end
+  it "should exclude the list" do
 
+    @reports << Benchmark.measure do
+      @keycodes = KeyCodeGenerator.generate
+      (@all & @excludes).should be_empty
+    end
+  end
 end 
 
 
